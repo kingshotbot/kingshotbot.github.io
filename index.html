@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phantom – Kingshot bot for PC (BlueStacks)</title>
+<meta name="description" content="Phantom plays Kingshot's daily chores for you on BlueStacks: keeps the builder and research busy, claims every daily reward, and plays like a person on a real emulator. Free 3 hours a day.">
+<link rel="canonical" href="https://kingshotbot.github.io/">
+<meta name="google-site-verification" content="jyNE3-vvkz5xo2bl6BgmZw4jPJNGhS0CF1qOUIISQ8k" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phantom – Kingshot bot for PC">
+<meta property="og:description" content="Phantom plays Kingshot's daily routine for you on BlueStacks: builder and research kept busy, every reward claimed.">
+<meta property="og:url" content="https://kingshotbot.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Phantom – Kingshot Bot",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "GameApplication",
+  "description": "Kingshot bot for PC. Plays the daily routine in BlueStacks: claims rewards, keeps the builder and research busy, follows the quests.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free for 3 hours a day" },
+  "downloadUrl": "https://github.com/kingshotbot/KingShot-Bot/releases/latest"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is the Kingshot bot free?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. The free plan runs the daily rewards and chores for 3 hours of bot time every game day, with no sign-up. Pro runs all day."}},
+    {"@type": "Question", "name": "Can I still play myself?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Press F9 to pause and play, F10 to hand it back."}},
+    {"@type": "Question", "name": "Will it spend my gems?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Anything that spends gems, keys or speed-ups is off until you turn it on, and always has a limit you choose."}},
+    {"@type": "Question", "name": "What do I need?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 or 11 (64-bit), BlueStacks 5 with Android Debug Bridge turned on, and 8 GB of memory (16 GB recommended). No Python or other tools."}},
+    {"@type": "Question", "name": "How do I get help?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Join the Phantom Discord server. To report a problem, use Report in the tray menu: Phantom exports a zip of its logs and screenshots to a folder you choose, and you share it with us."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mist:#e9eeea; --mist-2:#dfe6e1; --ink:#1e2a35; --stone:#7d8984;
+  --pine:#2e5e52; --pine-2:#24493f; --dawn:#f0d6b0; --night:#17212b;
+  --serif:"Spectral",Georgia,serif; --sans:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --col:40rem; --r:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--mist);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--pine)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pine);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0}
+h1{font-size:clamp(2.4rem,5.4vw,4.1rem);letter-spacing:-.01em;max-width:13ch}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);max-width:20ch}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:.9rem 0 0;max-width:var(--col)}
+.wrap{width:min(68rem,100% - 3rem);margin-inline:auto}
+section{padding:6.5rem 0}
+
+/* ── hero: misty hills ── */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;padding:7rem 0 9rem}
+.hero .wrap{position:relative;z-index:2}
+.hero p.lead{font-size:1.2rem;color:#33424f;max-width:33rem}
+.sky{position:absolute;inset:0;z-index:0;background:linear-gradient(#e2e9e5 0%,var(--mist) 55%,#dde5df 100%)}
+.hills{position:absolute;left:0;right:0;bottom:0;width:100%;height:58%;z-index:1}
+.mist{position:absolute;left:-30%;width:160%;height:22%;z-index:1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,255,255,.75),rgba(255,255,255,0));filter:blur(6px);opacity:.7}
+.mist.m1{bottom:30%;animation:drift 70s linear infinite}
+.mist.m2{bottom:14%;animation:drift 95s linear infinite reverse;opacity:.55}
+@keyframes drift{from{transform:translateX(-8%)}to{transform:translateX(8%)}}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem 1.4rem;align-items:center;margin-top:2.2rem}
+.btn{display:inline-block;background:var(--pine);color:#fff;text-decoration:none;font-weight:700;
+  padding:.85rem 1.4rem;border-radius:var(--r);transition:background .2s}
+.btn:hover{background:var(--pine-2)}
+.btn.alt{background:transparent;color:var(--pine);box-shadow:inset 0 0 0 1.5px var(--pine)}
+.btn.alt:hover{background:rgba(46,94,82,.08)}
+.note{color:var(--stone);font-size:.95rem}
+
+/* ── the day dial ── */
+.day{background:var(--mist-2)}
+.day-grid{display:grid;grid-template-columns:minmax(16rem,25rem) 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.dial{width:100%;aspect-ratio:1;position:relative}
+.dial svg{width:100%;height:100%;overflow:visible}
+.events{list-style:none;margin:0;padding:0}
+.events li{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;padding:.85rem 0;border-top:1px solid #c9d2cc;
+  color:var(--stone);transition:color .6s}
+.events li:last-child{border-bottom:1px solid #c9d2cc}
+.events time{font-family:var(--serif);font-size:1.05rem}
+.events li.on{color:var(--ink)}
+.events li.on time{color:var(--pine)}
+
+/* ── lists of what it does ── */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem 4rem;margin-top:3rem}
+.cols ul{margin:.9rem 0 0;padding:0;list-style:none}
+.cols li{padding:.45rem 0 .45rem 1.3rem;position:relative}
+.cols li::before{content:"";position:absolute;left:0;top:1.05rem;width:.45rem;height:.45rem;border-radius:50%;background:var(--pine);opacity:.55}
+
+/* ── calm statement band ── */
+.band{background:var(--night);color:#e7ece9}
+.band h2{color:#fff}
+.band p{color:#b8c3be}
+.promises{margin-top:2.6rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem}
+.promises h3{color:var(--dawn)}
+
+/* ── plans ── */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2.6rem;max-width:52rem}
+.plan{border:1px solid #c9d2cc;border-radius:14px;padding:1.8rem;background:#f3f6f4}
+.plan.pro{border-color:var(--pine);background:#fff}
+.plan .price{font-family:var(--serif);font-size:1.9rem;margin-top:.4rem}
+.plan ul{margin:1rem 0 0;padding-left:1.1rem}
+
+/* ── install steps (a real sequence) ── */
+ol.steps{counter-reset:s;list-style:none;margin:2.4rem 0 0;padding:0;max-width:44rem}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.6rem 3.2rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:-.1rem;width:2.1rem;height:2.1rem;border-radius:50%;
+  border:1px solid var(--pine);color:var(--pine);font-family:var(--serif);display:grid;place-items:center}
+.req{color:var(--stone);margin-top:1.4rem}
+
+details{border-top:1px solid #c9d2cc;padding:1.1rem 0;max-width:46rem}
+details:last-of-type{border-bottom:1px solid #c9d2cc}
+summary{cursor:pointer;font-family:var(--serif);font-size:1.15rem;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--pine);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+
+footer{background:var(--night);color:#93a29b;padding:3rem 0;font-size:.95rem}
+footer a{color:#cfe0d8}
+
+@media (max-width:820px){
+  .day-grid,.cols,.promises,.plans{grid-template-columns:1fr}
+  .dial{max-width:22rem}
+  section{padding:4.5rem 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .mist{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" aria-labelledby="hero-title">
+  <div class="sky" aria-hidden="true"></div>
+  <svg class="hills" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#cfd9d3" d="M0 250 C 220 170 380 210 560 180 C 760 150 920 230 1120 190 C 1270 160 1360 180 1440 170 V520 H0Z"/>
+    <path fill="#b3c4bb" d="M0 330 C 180 280 330 300 520 270 C 700 245 860 310 1040 285 C 1210 262 1340 290 1440 270 V520 H0Z"/>
+    <g fill="#8fa89d"><path d="M1080 286 l10 -26 l10 26z"/><path d="M1100 288 l8 -20 l8 20z"/><path d="M300 296 l9 -24 l9 24z"/></g>
+    <path fill="#6f8c80" d="M0 410 C 200 370 360 390 560 365 C 760 340 940 400 1150 375 C 1290 360 1380 372 1440 365 V520 H0Z"/>
+    <path fill="#3f6458" d="M0 470 C 240 445 470 462 700 448 C 930 434 1150 470 1440 452 V520 H0Z"/>
+  </svg>
+  <div class="mist m1" aria-hidden="true"></div>
+  <div class="mist m2" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1 id="hero-title">Your kingdom keeps growing while you sleep.</h1>
+    <p class="lead">Phantom plays Kingshot's daily routine for you on BlueStacks. It keeps your builder and research busy, claims every reward, and plays the way a person does.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/kingshotbot/KingShot-Bot/releases/latest">Download for Windows</a>
+      <a class="btn alt" href="https://discord.gg/7REY6Ur49">Join the Discord</a>
+      <span class="note">Free for 3 hours a day. No sign-up.</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="day" aria-labelledby="day-title">
+  <div class="wrap">
+    <h2 id="day-title">A day of Kingshot, handled.</h2>
+    <p>The game rewards players who show up every few hours. Phantom does, all day, at the moments that matter.</p>
+    <div class="day-grid">
+      <div class="dial" role="img" aria-label="A 24-hour dial showing when Phantom acts during the day">
+        <svg viewBox="-110 -110 220 220">
+          <circle r="96" fill="none" stroke="#c4cec8" stroke-width="1"/>
+          <g id="ticks" stroke="#9aa7a1" stroke-width="1"></g>
+          <path id="arc" fill="none" stroke="#2e5e52" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+          <circle id="sun" r="6" fill="#f0d6b0" stroke="#2e5e52" stroke-width="1.5"/>
+          <text id="clock" y="8" text-anchor="middle" font-family="Spectral, serif" font-size="26" fill="#1e2a35">00:00</text>
+          <text y="30" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="9" fill="#7d8984">server time (UTC)</text>
+        </svg>
+      </div>
+      <ol class="events" id="events">
+        <li data-h="0.2"><time>00:10</time><span>New game day: daily quests, sign-in, VIP chest and mail rewards claimed.</span></li>
+        <li data-h="2"><time>Every few hours</time><span>Builder free? The next upgrade towards your next Town Center level starts.</span></li>
+        <li data-h="8"><time>08:00</time><span>Intel refreshes: marches go out, but only where the game predicts a win.</span></li>
+        <li data-h="12"><time>12:00</time><span>Alliance gifts collected, allies helped, help asked for your own builds.</span></li>
+        <li data-h="16"><time>16:00</time><span>Troops collected and the next batches trained in every camp.</span></li>
+        <li data-h="20"><time>Evening</time><span>Research picks up where it left off; arena and conquest fought with free attempts.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="does-title">
+  <div class="wrap">
+    <h2 id="does-title">What it takes care of</h2>
+    <div class="cols">
+      <div>
+        <h3>Growth</h3>
+        <ul>
+          <li>Follows the Town Center's requirements, level after level</li>
+          <li>Fills every free builder slot with the next useful build</li>
+          <li>Keeps the Academy researching, march queues first</li>
+          <li>Collects trained troops and starts the next batch</li>
+          <li>Heals the wounded and welcomes new residents</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Daily rewards</h3>
+        <ul>
+          <li>Daily, growth and chapter quests</li>
+          <li>Mail rewards, without ever deleting your mail</li>
+          <li>VIP chest, 7-day sign-in and Path of Growth</li>
+          <li>Event rewards, storehouse and free hero recruits</li>
+          <li>Conquest idle chest and free shields on risky days</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Alliance</h3>
+        <ul>
+          <li>Joins a strong, active alliance if you have none</li>
+          <li>Helps allies and asks for help on your builds</li>
+          <li>Donates to alliance research and claims gifts</li>
+          <li>Keeps the game's rally auto-join running</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Battles and missions</h3>
+        <ul>
+          <li>Intel missions you are expected to win</li>
+          <li>Conquest stages and arena with free attempts</li>
+          <li>Rebel invasion defence and governor orders</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="calm-title">
+  <div class="wrap">
+    <h2 id="calm-title">It plays like a person, because it plays the real game.</h2>
+    <p>Phantom runs Kingshot in BlueStacks and reads the screen, the way you would. It never talks to the game's servers on its own, so it can only do what a player could do.</p>
+    <div class="promises">
+      <div><h3>Unhurried</h3><p>Every action waits a natural, varied moment. Choose a normal or a faster pace.</p></div>
+      <div><h3>Careful with your gems</h3><p>Nothing that costs gems or money happens unless you switch it on and set a limit.</p></div>
+      <div><h3>Hard to get stuck</h3><p>Game updates, lost connections, loading screens and guided tutorials are handled on their own.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="plans-title">
+  <div class="wrap">
+    <h2 id="plans-title">Start free</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="price">3 hours a day</div>
+        <ul><li>All daily rewards and chores</li><li>Resets every game day</li><li>No account or card needed</li></ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro</h3>
+        <div class="price">All day</div>
+        <ul><li>Everything on this page</li><li>Builder, research and troops kept busy around the clock</li><li>Every new feature as it is released</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="day" aria-labelledby="install-title">
+  <div class="wrap">
+    <h2 id="install-title">Set up in a few minutes</h2>
+    <ol class="steps">
+      <li>Install <strong>BlueStacks 5</strong> and Kingshot inside it.</li>
+      <li>In BlueStacks, open Settings, then Advanced, and turn on <strong>Android Debug Bridge</strong>.</li>
+      <li>Download Phantom and run the installer. No Python or other tools are needed.</li>
+      <li>Open Phantom, add your BlueStacks instance and press Start.</li>
+    </ol>
+    <p class="req">Windows 10 or 11 (64-bit) · 8 GB of memory, 16 GB recommended</p>
+  </div>
+</section>
+
+<section aria-labelledby="faq-title">
+  <div class="wrap">
+    <h2 id="faq-title">Questions</h2>
+    <div style="margin-top:2rem">
+      <details><summary>Can I still play myself?</summary><p>Yes. Press F9 to pause and play, F10 to hand it back.</p></details>
+      <details><summary>Will it spend my gems?</summary><p>No. Anything that spends gems, keys or speed-ups is off until you turn it on, and always has a limit you choose.</p></details>
+      <details><summary>What if the game updates?</summary><p>Phantom downloads the game's new resources when asked and keeps going.</p></details>
+      <details><summary>Something looks wrong. What do I do?</summary><p>Use Report in the tray menu. Phantom shows exactly which logs and screenshots go into the report and saves it as a zip in a folder you choose. Nothing is sent anywhere; share the zip with us on <a href="https://discord.gg/7REY6Ur49">Discord</a>.</p></details>
+      <details><summary>How do I get help?</summary><p>Join the <a href="https://discord.gg/7REY6Ur49">Phantom Discord server</a>.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Phantom is not affiliated with Century Games. Kingshot is a trademark of its owner. Automating a game can break its terms of service; use it at your own discretion.
+    <br><a href="https://github.com/kingshotbot/KingShot-Bot/releases">Changelog</a> · <a href="https://discord.gg/7REY6Ur49">Discord</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ticks = document.getElementById("ticks"), arc = document.getElementById("arc"),
+      sun = document.getElementById("sun"), clock = document.getElementById("clock"),
+      items = [].slice.call(document.querySelectorAll("#events li"));
+  var R = 96, NS = "http://www.w3.org/2000/svg";
+  for (var h = 0; h < 24; h++) {
+    var a = (h / 24) * 2 * Math.PI - Math.PI / 2, len = h % 6 === 0 ? 9 : 4, l = document.createElementNS(NS, "line");
+    l.setAttribute("x1", Math.cos(a) * (R - len)); l.setAttribute("y1", Math.sin(a) * (R - len));
+    l.setAttribute("x2", Math.cos(a) * R); l.setAttribute("y2", Math.sin(a) * R); ticks.appendChild(l);
+  }
+  function point(hours) { var a = (hours / 24) * 2 * Math.PI - Math.PI / 2; return [Math.cos(a) * R, Math.sin(a) * R]; }
+  function draw(hours) {
+    var p = point(hours), large = hours > 12 ? 1 : 0;
+    arc.setAttribute("d", "M 0 " + (-R) + " A " + R + " " + R + " 0 " + large + " 1 " + p[0].toFixed(2) + " " + p[1].toFixed(2));
+    sun.setAttribute("cx", p[0]); sun.setAttribute("cy", p[1]);
+    var hh = Math.floor(hours), mm = Math.floor((hours - hh) * 60);
+    clock.textContent = (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
+    var current = null;
+    items.forEach(function (li) { if (parseFloat(li.dataset.h) <= hours) current = li; });
+    items.forEach(function (li) { li.classList.toggle("on", li === current); });
+  }
+  if (reduce) { draw(8.2); return; }
+  var DAY_MS = 48000, start = null, visible = true;
+  new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(document.querySelector(".dial"));
+  function frame(t) {
+    if (start === null) start = t;
+    if (visible) draw((((t - start) % DAY_MS) / DAY_MS) * 24);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
